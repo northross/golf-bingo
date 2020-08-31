@@ -1,6 +1,7 @@
 const row = document.querySelector('.row');
 
 let arr = [];
+let val;
 
 row.addEventListener('click', (e) => {
   if (
@@ -9,10 +10,16 @@ row.addEventListener('click', (e) => {
   ) {
     console.log(e.target.getAttribute('id'))
     e.target.classList.toggle('selected');
-    arr.push(e.target.getAttribute('id'));
+    arr.push(parseInt(e.target.getAttribute('id')));
     console.log(arr);
+  } else if (e.target.classList.contains('selected')) {
+    arr.splice(arr.indexOf((parseInt(e.target.getAttribute('id')))), 1)
+    e.target.classList.toggle('selected');
+    console.log(arr)
   }
 });
+
+
 /* 
 row.addEventListener('click', (e) => {
   if (
@@ -20,7 +27,7 @@ row.addEventListener('click', (e) => {
     e.target.classList.contains('selected')
   ) {
     console.log(e.target.getAttribute('id'))
-    e.target.classList.toggle('selected');
+    e.target.removeClass('selected');
     arr.pop(e.target.getAttribute('id'));
     console.log(arr);
   }
