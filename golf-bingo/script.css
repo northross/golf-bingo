@@ -1,0 +1,27 @@
+const row = document.querySelector('.row');
+
+let arr = [];
+
+row.addEventListener('click', (e) => {
+  if (
+    e.target.classList.contains('spot') &&
+    !e.target.classList.contains('selected')
+  ) {
+    console.log(e.target.getAttribute('id'))
+    e.target.classList.toggle('selected');
+    arr.push(e.target.getAttribute('id'));
+    console.log(arr);
+  }
+});
+/* 
+row.addEventListener('click', (e) => {
+  if (
+    e.target.classList.contains('spot') &&
+    e.target.classList.contains('selected')
+  ) {
+    console.log(e.target.getAttribute('id'))
+    e.target.classList.toggle('selected');
+    arr.pop(e.target.getAttribute('id'));
+    console.log(arr);
+  }
+}); */

@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+.spot {
+  background-color: #00742e;
+  height: 100px;
+  width: 74px;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  justify-content: center;
+  padding-top: 35px;
+  border: 1px solid #000;
+  cursor: default;
+}
+
+.row {
+  display: table;
+  border: 1px solid #000;
+}
+
+.column {
+  float: left;
+}
+
+.p {
+  color: #000;
+  font-size: 50px;
+}
+
+.spot:hover {
+  cursor: default;
+  transform: scale(1.1);
+  background-color: #00b046;
+}
+
+.spot.selected {
+  background-color: #00cb11;
+}
