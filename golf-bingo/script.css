@@ -3,6 +3,25 @@ const row = document.querySelector('.row');
 let arr = [];
 let val;
 
+let cellText = ['Water Hazard', 'Swing and a Miss', 'Slice', 'Hook', 'Hit a Tree', 'Playing From Other Fairway', 'Lost Ball', 'Lost Ball', 'Lost Ball', 'Duff Your Shot', 'Out of Bounds', '3-Putt', '4-Putt', 'Terrible Bounce', 'Sand Trap', 'Over the Green', 'Ground Ball', 'Rim the Cup', 'Skulling a Chip Shot', 'Lost a Club', 'Divot goes Further than Ball', 'Group on another Hole Cheers', 'Fairway Bunker']
+
+console.log(cellText[randomNumber(0, 24)])
+
+/* const selectedSquare = function (e) => {
+  console.log(e.target.getAttribute('id'));
+    e.target.classList.toggle('selected');
+    arr.push(parseInt(e.target.getAttribute('id')));
+    console.log(arr);
+} */
+
+function randomNumber(min, max) {  
+  return Math.floor(Math.random() * (max - min) + min); 
+}  
+
+let num = (randomNumber(0, 24));
+console.log(num);
+
+
 row.addEventListener('click', (e) => {
   if (
     e.target.classList.contains('spot') &&
@@ -12,6 +31,7 @@ row.addEventListener('click', (e) => {
     e.target.classList.toggle('selected');
     arr.push(parseInt(e.target.getAttribute('id')));
     console.log(arr);
+    /* selectedSquare(); */
   } else if (e.target.classList.contains('selected')) {
     arr.splice(arr.indexOf((parseInt(e.target.getAttribute('id')))), 1)
     e.target.classList.toggle('selected');
@@ -20,15 +40,3 @@ row.addEventListener('click', (e) => {
 });
 
 
-/* 
-row.addEventListener('click', (e) => {
-  if (
-    e.target.classList.contains('spot') &&
-    e.target.classList.contains('selected')
-  ) {
-    console.log(e.target.getAttribute('id'))
-    e.target.removeClass('selected');
-    arr.pop(e.target.getAttribute('id'));
-    console.log(arr);
-  }
-}); */
