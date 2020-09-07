@@ -25,6 +25,21 @@ const c22 = document.getElementById('22');
 const c23 = document.getElementById('23');
 const c24 = document.getElementById('24');
 
+const rowOne = [0, 5, 10, 15, 20];
+const rowTwo = [1, 6, 11, 16, 21];
+const rowThr = [2, 7, 12, 17, 22];
+const rowFou = [3, 8, 13, 18, 23];
+const rowFiv = [4, 9, 14, 19, 24];
+const colOne = [0, 1, 2, 3, 4];
+const colTwo = [5, 6, 7, 8, 9];
+const colThr = [10, 11, 12, 13, 14];
+const colFou = [15, 16, 17, 18, 19];
+const colFiv = [20, 21, 22, 23, 24];
+const topLef = [0, 6, 12, 18, 24]
+const topRig = [4, 8, 12, 16, 20];
+
+const wins = [rowOne, rowTwo, rowThr, rowFou, rowFiv, colOne, colTwo, colThr, colFou, colFiv, topLef, topRig];
+
 let arrIDs = [
   c0,
   c1,
@@ -52,6 +67,7 @@ let arrIDs = [
   c23,
   c24,
 ];
+
 let arr = [];
 let poolArr = [];
 let val;
@@ -84,8 +100,6 @@ let cellText = [
   'asdfasdfadsf',
 ];
 
-console.log(cellText[randomNumber(0, 25)]);
-
 // generate a card
 function newCard() {
   let num = randomNumber(0, cellText.length);
@@ -102,18 +116,33 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-row.addEventListener('click', (e) => {
+function test(array) {
+  while (let i = 0 && let j = 0; i < array.length - 1 && j < wins.length-1; i++) {
+    wins[j].includes()
+  }
+}
+
+
+function addRemoveSquare(e) {
   if (
     e.target.classList.contains('spot') &&
     !e.target.classList.contains('selected')
   ) {
     console.log(e.target.getAttribute('id'));
+    console.log(typeof e.target.getAttribute('id'));
     e.target.classList.toggle('selected');
     arr.push(parseInt(e.target.getAttribute('id')));
     console.log(arr);
+    console.log(typeof e.target.getAttribute('id'));
   } else if (e.target.classList.contains('selected')) {
     arr.splice(arr.indexOf(parseInt(e.target.getAttribute('id'))), 1);
     e.target.classList.toggle('selected');
     console.log(arr);
   }
-});
+}
+
+row.addEventListener('click', addRemoveSquare);
+
+// let answer = checker(arr, target);
+
+// console.log(answer);
