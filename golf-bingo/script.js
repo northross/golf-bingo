@@ -35,10 +35,23 @@ const colTwo = [5, 6, 7, 8, 9];
 const colThr = [10, 11, 12, 13, 14];
 const colFou = [15, 16, 17, 18, 19];
 const colFiv = [20, 21, 22, 23, 24];
-const topLef = [0, 6, 12, 18, 24]
+const topLef = [0, 6, 12, 18, 24];
 const topRig = [4, 8, 12, 16, 20];
 
-const wins = [rowOne, rowTwo, rowThr, rowFou, rowFiv, colOne, colTwo, colThr, colFou, colFiv, topLef, topRig];
+const wins = [
+  rowOne,
+  rowTwo,
+  rowThr,
+  rowFou,
+  rowFiv,
+  colOne,
+  colTwo,
+  colThr,
+  colFou,
+  colFiv,
+  topLef,
+  topRig,
+];
 
 let arrIDs = [
   c0,
@@ -116,12 +129,25 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function test(array) {
-  while (let i = 0 && let j = 0; i < array.length - 1 && j < wins.length-1; i++) {
-    wins[j].includes()
+function testWin(arr, wins) {
+  for (let i = 0; i < wins.length - 1, i++; ) {
+    let test = wins[i];
+    for (let j = 0; j <= wins[i].length - 1; j++) {
+      if (!arr.include(wins[i][j])) {
+        console.log('lose');
+        console.log(wins[i][j]);
+        return;
+      }
+      console.log(wins[i][j]);
+    }
   }
 }
-
+// function test(array) {
+//   while (let i = 0 && let j = 0; i < array.length - 1 && j < wins.length-1; i++) {
+//     if
+//     wins[j].includes(array[i])
+//   }
+// }
 
 function addRemoveSquare(e) {
   if (
@@ -134,6 +160,7 @@ function addRemoveSquare(e) {
     arr.push(parseInt(e.target.getAttribute('id')));
     console.log(arr);
     console.log(typeof e.target.getAttribute('id'));
+    testWin(arr, wins);
   } else if (e.target.classList.contains('selected')) {
     arr.splice(arr.indexOf(parseInt(e.target.getAttribute('id'))), 1);
     e.target.classList.toggle('selected');
